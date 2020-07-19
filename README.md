@@ -18,11 +18,11 @@ This script comes with <b>five</b> different methods of extraction, based on dif
 <img src="https://i.ibb.co/cb0Jkcc/unnamed.png" alt="Smooth plate"><br>
 + <b>Single Character Extraction</b>: It does what you expect; extracts one by one the characters contained into the image, saving each <br>
 of them into a separate image. We got two kind of single character extraction:
-    + <b>Binary</b>: Will give a similar output as the Plate Binarization, but dividing each character.<br>
+    + <b>Binary</b>: Will give a similar output as the Plate Binarization, but dividing each character into a single image.<br>
     ![](https://i.ibb.co/j4FTnM5/0-binary.png=250x250),![](https://i.ibb.co/4Njzk9Z/1-binary.png=250x250),![](https://i.ibb.co/xSvfzNP/2-binary.png=250x250),![](https://i.ibb.co/t2ZgKNT/3-binary.png=250x250),![](https://i.ibb.co/w0rdR5s/4-binary.png=250x250),![](https://i.ibb.co/rGkGhyY/5-binary.png=250x250),![](https://i.ibb.co/QMTjSgM/6-binary.png=250x250)
-    + <b>Exact</b>: Will give a similar output as the Plate Exact, but dividing each character. <br>
+    + <b>Exact</b>: Will give a similar output as the Plate Exact, but dividing each character into a single image.<br>
     ![](https://i.ibb.co/ggTG5BW/image.png=250x250),![](https://i.ibb.co/sR8Kd90/1.png=250x250),![](https://i.ibb.co/hXD8Qct/2.png=250x250),![](https://i.ibb.co/NnGDJbj/3.png=250x250),![](https://i.ibb.co/Y8jy6CD/4.png=250x250),![](https://i.ibb.co/0XZsBzf/5.png=250x250),![](https://i.ibb.co/xDSKzbf/6.png=250x250)<br>
-+ <b>ALL</b>: Methods that uses <b>EACH OF THE PREVIOUS</b> methods, calling them one by one and storing the result of each one into a folder.<br>
++ <b>ALL</b>: Methods that uses <b>EACH OF THE PREVIOUS</b> methods, calling them one by one and storing the result of each one into the appropriate folder.<br>
 
 #### Functionalities
 This script was made with <b>efficience</b> in mind. Indeed, each of the methods proposed are insanely fast and performant, relying mostly on the <b>Numpy</b> and <b>OpenCV</b> library: this because, the preoprocessing step before the OCR should be as fast as possible.<br>
