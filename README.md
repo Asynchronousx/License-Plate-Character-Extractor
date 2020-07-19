@@ -2,7 +2,7 @@
 <b>LPCE</b>: A simple yet powerful tool built to extract characters (alphabetical and numerical) from a license plate.<br><br><br>
 <img src="https://i.ibb.co/fFvsPN6/unnamed.jpg" title="Optional title" alt="Original Plate"> <img src="https://i.ibb.co/hXm4hc4/resized.png" alt="Binarized Plate">
 
-The reason behind this script was given by the necessity of extracting only the characters from a license plate to fine-tune an OCR neural network model like <b>Tesseract</b>, to train the netowrk on how to recognize and correctly identify characters from a license plate. <br>
+The reason behind this script was given by the necessity of extracting only the characters from a license plate to fine-tune an OCR neural network model like <b>Tesseract</b>, to train the netowrk on how to recognize and correctly identify characters from a license plate. This tool is also aimed to perform the best preprocessing possible to do OCR on a given license plate.<br>
 
 ## Features
 This script comes with <b>five</b> different methods of extraction, based on different needs:<br>
