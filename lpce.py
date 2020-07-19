@@ -57,6 +57,8 @@ class PlateExtractor:
     def display_pipeline(self, name, plate):
         cv2.imshow(name, plate)
         cv2.waitKey(0)
+        
+    # End
 
     # Function that, given a plate image, will do various preprocessing operations to
     # optimally binarize and clarify the plate text in the image.
