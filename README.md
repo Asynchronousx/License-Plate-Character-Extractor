@@ -36,6 +36,7 @@ This script was made with <b>efficience</b> in mind. Indeed, each of the methods
 ## Usage
 
 First of all, be sure to download/clone the repo and extract the <b>lcpe.py</b> in a folder of your choice (default: current folder) and then follow up the usage section. If you want to extract the lcpe.py file in another directory, be sure to specify that into your script. Additionally, the file <b>example.py</b> contains some of usage examples ready to be executed.<br>
+Note that, the script <b>works on image containing only the plate</b>. Images with an entire car or with partially visible plates will not work well.<br> 
 
 ### Basic
 This script was also made with an extreme <b>ease of use</b> in mind.<br>
