@@ -13,7 +13,7 @@ Note: This method works really good with good resolution LP since it will build 
 <img src="https://i.ibb.co/FBVBfbW/unnamed.png" alt="Exact plate"><br>
 + <b>Plate Binarization</b>: Given a license plate will produce the most accurate binarization.<br>
 <img src="https://i.ibb.co/1G2LSpH/unnamed-binary.png" alt="Binarized plate"><br>
-+ <b>Plate Enhance Grayscale</b>: Given a license plate will produce a cropped, enhanced plate containing only characters.<br>
++ <b>Plate Enhance Grayscale</b>: Given a license plate will produce a cropped, enhanced original plate containing mostly only the area in which the characters are contained.<br>
 <img src="https://i.ibb.co/y8ykrVf/unnamed.png" alt="Grayscale plate"><br>
 + <b>Plate Binarization Smooth</b>: Given a license plate, will produce a smoothed and thickened version of the binarization plate<br>
 <img src="https://i.ibb.co/cb0Jkcc/unnamed.png" alt="Smooth plate"><br>
