@@ -8,7 +8,7 @@ extractor = PlateExtractor()
 path = sys.argv[1]
 
 ### NOTE: use ONE method at time, commeting others not used. ###
-### VARIOUS EXAMPLE CASES: more info at: 
+### VARIOUS EXAMPLE CASES: more info at https://github.com/Asynchronousx/License-Plate-Character-Extractor: 
 
 # 0) Calling the function display_result to display the pipeline to the user of a given image.
 # We pass precise_masking = True that means the contours of the character will be taken instead
