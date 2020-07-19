@@ -73,7 +73,7 @@ class PlateExtractor:
         plate = self.optimal_resize(plate)
 
         # First thing, we convert the plate from RGB to HSV to generate a precise
-        # blue mask based that will be later applied to the grayscale image to cut
+        # blue mask that will be later applied to the grayscale image to cut
         # unnecessary elements from the whole plate image.
         hsv_plate = cv2.cvtColor(plate, cv2.COLOR_BGR2HSV)
 
