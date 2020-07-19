@@ -26,17 +26,19 @@ of them into a separate image. We got two kind of single character extraction:
 + <b>ALL</b>: Methods that uses <b>EACH OF THE PREVIOUS</b> methods, calling them one by one and storing the result of each one into a folder.<br>
 
 #### Functionalities
+This script was made with <b>efficience</b> in mind. Indeed, each of the methods proposed are insanely fast and performant, relying mostly on the <b>Numpy</b> library: this because, the preoprocessing step before the OCR should be as fast as possible.<br>
+
 + <b>Display Result</b>: Function that takes in input an image and display every single step of our pre and post processing, useful to understand what the pipeline does (for curiosity or debug purposes). NOTE: <b>can't</b> be used with SINGLECHAR.
 + <b>Extraction on path</b>: Given a path (a single image or an entire folder), this function will take care of apply the extraction methods on the given input/s. <b>NOTE</b> If a folder has been passed, be sure that the folder itself contains ONLY IMAGES. Others file will make the script not working.
 + <b>.BOX File creation for Tesseract</b>: Since this script was created having in mind the <b>training of tesseract</b> as main purpose, it will take care of generate <b>.BOX</b> file containing the coordinates of each character into the given plate, that will be needed later into the tesseract training to identify the characters. To take advantage of this functionality, you need to name your file as follow: ID-PLATECHARACTERS.EXT<br>
--> Example: Given the plate used as example, the name should be: <b>0-FI764WL.ext</b> where ext can be <b>any extension</b> (jpg,png,tif etc). It will then produce a .BOX file containing coordinates useful for tesseract in training phase.
+-> Example: Given the plate used as example, the name should be: <b>0-FI764WL.ext</b> where ext can be <b>any extension</b> (jpg,png,tif etc). It will then produce a .BOX file containing coordinates useful for tesseract in training phase. <br>
 
 ## Usage
 
 First of all, be sure to download/clone the repo and extract the <b>lcpe.py</b> in a folder of your choice (default: current folder) and then follow up the usage section. If you want to extract the lcpe.py file in another directory, be sure to specify that into your script. Additionally, the file <b>example.py</b> contains some of usage examples ready to be executed.<br>
 
 ### Basic
-This script was made with an extreme <b>ease of use</b> in mind.<br>
+This script was also made with an extreme <b>ease of use</b> in mind.<br>
 All the functions are organized into a class, which you'll need to import into your python script to perform the extraction.<br>
 There are two main methods which can use, and both of them can be used out-of-the-box without any tweaking to it: <b>display_result</b> to show pipeline outputs at each step and <b>apply_extraction_on_path</b> that given a folder or a single image, will take care of creating for you all the output folders in which results will be contained.<br>
 By default, the extraction method used without any tweaking on the flags are both Binarization for the entire plate and the single characters extraction.<br>
