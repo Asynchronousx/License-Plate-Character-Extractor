@@ -26,7 +26,7 @@ of them into a separate image. We got two kind of single character extraction:
 + <b>ALL</b>: Methods that uses <b>EACH OF THE PREVIOUS</b> methods, calling them one by one and storing the result of each one into a folder.<br>
 
 #### Functionalities
-This script was made with <b>efficience</b> in mind. Indeed, each of the methods proposed are insanely fast and performant, relying mostly on the <b>Numpy</b> library: this because, the preoprocessing step before the OCR should be as fast as possible.<br>
+This script was made with <b>efficience</b> in mind. Indeed, each of the methods proposed are insanely fast and performant, relying mostly on the <b>Numpy</b> and <b>OpenCV</b> library: this because, the preoprocessing step before the OCR should be as fast as possible.<br>
 
 + <b>Display Result</b>: Function that takes in input an image and display every single step of our pre and post processing, useful to understand what the pipeline does (for curiosity or debug purposes). NOTE: <b>can't</b> be used with SINGLECHAR.
 + <b>Extraction on path</b>: Given a path (a single image or an entire folder), this function will take care of apply the extraction methods on the given input/s. <b>NOTE</b> If a folder has been passed, be sure that the folder itself contains ONLY IMAGES. Others file will make the script not working.
