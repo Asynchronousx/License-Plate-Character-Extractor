@@ -31,7 +31,7 @@ This script was made with <b>efficience</b> in mind. Indeed, each of the methods
 + <b>Display Result</b>: Function that takes in input an image and display every single step of our pre and post processing, useful to understand what the pipeline does (for curiosity or debug purposes). NOTE: <b>can't</b> be used with SINGLECHAR.
 + <b>Extraction on path</b>: Given a path (a single image or an entire folder), this function will take care of apply the extraction methods on the given input/s. <b>NOTE</b> If a folder has been passed, be sure that the folder itself contains ONLY IMAGES. Others file will make the script not working.
 + <b>.BOX File creation for Tesseract</b>: Since this script was created having in mind the <b>training of tesseract</b> as main purpose, it will take care of generate <b>.BOX</b> file containing the coordinates of each character into the given plate, that will be needed later into the tesseract training to identify the characters. To take advantage of this functionality, you need to name your file as follow: ID-PLATECHARACTERS.EXT<br>
--> Example: Given the plate used as example, the name should be: <b>0-FI764WL.ext</b> where ext can be <b>any extension</b> (jpg,png,tif etc). It will then produce a .BOX file containing coordinates useful for tesseract in training phase. <br>
+-> Example: Given the plate used as example, the name should be: <b>0-FI764WL.ext</b> where ID are progressive into the main folder (0,1,2,3,4...N), FI764WL are the characters contained into the plate and ext can be <b>any extension</b> (jpg,png,tif etc). It will then produce a .BOX file containing coordinates useful for tesseract in training phase. <b>Be careful to the syntax</b> if you want to generate .BOX files!<br>
 
 ## Usage
 
