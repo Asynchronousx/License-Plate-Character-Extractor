@@ -8,8 +8,7 @@ The reason behind this script was given by the necessity of extracting only the 
 This script comes with <b>five</b> different methods of extraction, based on different needs:<br>
 
 #### Extraction methods             
-+ <b>Plate Exact Grayscale</b>: Given a license plate, will produce an image containing only the exact character from the original plate.<br>
-Note: This method works really good with good resolution LP since it will build a mask containing the cropped characters from the original LP.<br>
++ <b>Plate Exact Grayscale</b>: Given a license plate, will produce an image containing only the exact character from the original plate. Note: This method works really good with good resolution LP since it will build a mask containing the cropped characters from the original LP.<br>
 <img src="https://i.ibb.co/FBVBfbW/unnamed.png" alt="Exact plate"><br>
 + <b>Plate Binarization</b>: Given a license plate will produce the most accurate binarization.<br>
 <img src="https://i.ibb.co/1G2LSpH/unnamed-binary.png" alt="Binarized plate"><br>
