@@ -131,9 +131,9 @@ You'll need this modules to run this script:
 + <b>Imutils</b>
 + <b>TQDM</b>
 
-#### Known issues
+## Known issues
 The script was made to work with Italian plates, but works with almost EVERY kind of CAR plate, as long they presents two common aspects:<br>
-+ If bands are present, they must be BLUE
-+ Plate background should be WHITE (i.e: not working with different background, like yellow). 
++ If bands are present, they must be <b>BLUE</b>
++ Plate background should be </b>WHITE</b> (i.e: not working with different background, like yellow). 
 
 
