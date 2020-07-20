@@ -42,8 +42,7 @@ Note that, the script <b>works on image containing only the plate</b>. Images wi
 This script was also made with an extreme <b>ease of use</b> in mind.<br>
 All the functions are organized into a class, which you'll need to import into your python script to perform the extraction.<br>
 There are two main methods which can use, and both of them can be used out-of-the-box without any tweaking to it: <b>display_result</b> to show pipeline outputs at each step and <b>apply_extraction_on_path</b> that given a folder or a single image, will take care of creating for you all the output folders in which results will be contained; if specified, can also return the processed plate.<br>
-By default, the extraction method used without any tweaking on the flags are both Binarization for the entire plate and the single characters extraction.<br>
-Let's look for a practical example: <br>
+By default, the extraction method used without any tweaking on the flags are both Binarization for the entire plate and the single characters extraction. Let's look for a practical example: <br>
 <b>Extraction on a given path:</b>
 ```python
 # Importing class module
