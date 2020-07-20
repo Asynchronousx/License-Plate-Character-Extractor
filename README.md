@@ -47,7 +47,7 @@ Let's look for a practical example: <br>
 <b>Extraction on a given path:</b>
 ```python
 # Importing class module
-from extractor import PlateExtractor
+from lpce import PlateExtractor
 # Generating our istance
 extractor = PlateExtractor()
 # Apply extraction on a given path (image or an entire folder containing ONLY images)
@@ -56,7 +56,7 @@ extractor.apply_extraction_onpath(input_path=path)
 <b>Display Pipeline results:</b>
 ```python
 # Importing class module
-from extractor import PlateExtractor
+from lpce import PlateExtractor
 # Generating our istance
 extractor = PlateExtractor()
 # Display each step of the pipeline on a SINGLE image
@@ -103,7 +103,7 @@ Each of them corresponds to the methods described earlier into the README and wi
 <b>Apply extraction on path</b>:
 ```python
 # Importing class module, FTYPE and STYPE enumS
-from extractor import PlateExtractor, FTYPE, STYPE
+from lpce import PlateExtractor, FTYPE, STYPE
 # Generating our istance
 extractor = PlateExtractor()
 # Apply extraction on a given path, with precise_masking set to false and grayscale extraction instead of binary
