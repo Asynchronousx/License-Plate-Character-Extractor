@@ -1,6 +1,6 @@
 # License Plate Character Extractor
 <b>LPCE</b>: A simple yet useful tool built to extract only the alphanumerical characters from a license plate image.<br>
-<img src="https://i.ibb.co/fFvsPN6/unnamed.jpg" title="Optional title" alt="Original Plate"> <img src="https://i.ibb.co/hXm4hc4/resized.png" alt="Binarized Plate">
+<img src="https://i.ibb.co/fFvsPN6/unnamed.jpg" title="Optional title" alt="Original Plate"> <img src="https://i.ibb.co/hXm4hc4/resized.png" alt="Binarized Plate"><br>
 The reason behind this script was given by the necessity of extracting only the characters from a license plate to fine-tune an OCR neural network model like <b>Tesseract</b>, both for train the netowrk on how to recognize and correctly identify characters from a license plate and for applying a solid preprocessing before perform the OCR.<br><br>
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
