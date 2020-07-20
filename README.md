@@ -58,7 +58,7 @@ extractor.apply_extraction_onpath(input_path=path)
 from lpce import PlateExtractor
 # Generating our istance
 extractor = PlateExtractor()
-# Apply extraction on a given path (image)
+# Apply extraction on a given path (image) and return the processed plate
 extracted_plate = extractor.apply_extraction_onpath(input_path=path, ret=True)
 ```
 <b>Display Pipeline results:</b>
