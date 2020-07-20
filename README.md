@@ -1,4 +1,5 @@
 # License Plate Character Extractor
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <b>LPCE</b>: A simple yet useful tool built to extract only the alphanumerical characters from a license plate image.<br><br><br>
 <img src="https://i.ibb.co/fFvsPN6/unnamed.jpg" title="Optional title" alt="Original Plate"> <img src="https://i.ibb.co/hXm4hc4/resized.png" alt="Binarized Plate">
 
