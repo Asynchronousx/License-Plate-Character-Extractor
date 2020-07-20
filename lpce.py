@@ -980,7 +980,7 @@ class PlateExtractor:
     # NOTE: if the input path is a folder, it must contains only images and folders.
     # Defaultly, This function will apply the binarization function as default one,
     # with precise_masking=false (bounding boxes will be returned instead of precise contours)
-    def apply_extraction_onpath(self, input_path=None, desired_ext='png', precise_masking=True, adaptive_bands=True, ftype=FTYPE.BINARY, stype=STYPE.BINARY, ret=False):
+    def apply_extraction_onpath(self, input_path=None, desired_ext='png', precise_masking=True, adaptive_bands=True, ftype=FTYPE.BINARY, stype=STYPE.BINARY, ret=False, write=True):
 
         # Check if path is none then exit
         if input_path is None:
@@ -1020,7 +1020,8 @@ class PlateExtractor:
 
                 # and extract the text from the image: note that, this function will write
                 # by default results on disk.
-                self.extract_text(bin_plate, gray_plate, plate, adaptive_coord, contours_coordinate, contours_mask, "{}.{}".format(filename, desired_ext), ftype, stype, True, False)
+                result = self.extract_text(bin_plate, gray_plate, plate, adaptive_coord, contours_coordinate, contours_mask, "{}.{}".format(filename, desired_ext), ftype, stype, True, False, False)
+        
         else:
 
             print("Going to extract characters from: {}".format(input_path))
@@ -1045,7 +1046,7 @@ class PlateExtractor:
 
             # and extract the text from the image: note that, this function will write
             # by default results on disk.
-            result = self.extract_text(bin_plate, gray_plate, plate, adaptive_coord, contours_coordinate, contours_mask, "{}.{}".format(filename, desired_ext), ftype, stype, True, ret)
+            result = self.extract_text(bin_plate, gray_plate, plate, adaptive_coord, contours_coordinate, contours_mask, "{}.{}".format(filename, desired_ext), ftype, stype, write, ret, False)
     
             # If ret was set to true, return the processed plate to the user 
             if ret: return result
