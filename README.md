@@ -52,14 +52,14 @@ extractor = PlateExtractor()
 # Apply extraction on a given path (image or an entire folder containing ONLY images)
 extractor.apply_extraction_onpath(input_path=path)
 ```
-<b>Extraction on a single image specifying the return flag (plate must be returned)</b>
+<b>Extraction on a single image specifying the return flag (plate must be returned) and setting the write on disk option to false</b>
 ```python
 # Importing class module
 from lpce import PlateExtractor
 # Generating our istance
 extractor = PlateExtractor()
 # Apply extraction on a given path (image) and return the processed plate
-extracted_plate = extractor.apply_extraction_onpath(input_path=path, ret=True)
+extracted_plate = extractor.apply_extraction_onpath(input_path=path, ret=True, write=False)
 ```
 <b>Display Pipeline results:</b>
 ```python
