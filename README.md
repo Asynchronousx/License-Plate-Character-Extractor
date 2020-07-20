@@ -75,7 +75,7 @@ extractor.display_result(input_path=path)
 Instead, if you'd like to tweak the extraction or the display method, there are some flags you should know about: let's look for the entire function call in the class, both for extraction and display:<br>
 ```python
 def apply_extraction_onpath(self, input_path=None, desired_ext='png', precise_masking=True, adaptive_bands=True, ftype=FTYPE.BINARY, stype=STYPE.BINARY, write=True, ret=False)
-def display_result(self, input_path=None, precise_masking=True, adaptive_bands=True, ftype=FTYPE.BINARY, stype=STYPE.BINARY, write=False, ret=True, display=True)
+def display_result(self, input_path=None, precise_masking=True, adaptive_bands=True, ftype=FTYPE.BINARY, stype=STYPE.BINARY, display=True)
 ```
 
 Let's now breakdown the parameter list and explain carefully what each of them does:
@@ -86,6 +86,8 @@ Let's now breakdown the parameter list and explain carefully what each of them d
 + <b>adaptive_bands</b>: Adaptive bands will automatically fetch the coordinates of the blue band (if present) into the image that will be used in the script to crop automatically the image considering only the area of the plate in which the character are contained. <b>default: True</b>
 + <b>ftype</b>: Type of extraction method used to process the plate into an image containing only the characters. <b>default=FTYPE.BINARY</b>
 + <b>stype</b>: Type of extraction method used to extract the single characters from the plate into single images. <b>default=STYPE.BINARY</b><br>
++ <b>ret</b>: Specify if the image should be returned to the function caller or not. WORKS ONLY FOR SINGLE IMAGES. (currently) <b>default=False</b>
++ <b>write</b>: Specify if the image need to be wrote on disk or not. <b>default=True</b>
 #### List of parameters: display_result
 + <b>input_path</b>: Same as above
 + <b>precise_masking</b>: Same as above
