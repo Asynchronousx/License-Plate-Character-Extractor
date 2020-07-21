@@ -147,7 +147,7 @@ You'll need this modules to run this script:
 + <b>TQDM</b>
 
 ## Known issues
-The script was made to work with Italian plates, but works with almost EVERY kind of CAR plate, as long they presents two common aspects:<br>
+The script was made to work with Italian plates, but works with almost EVERY kind of EUROPEAN CAR plate, as long they presents two common aspects:<br>
 + If bands are present, they must be <b>BLUE</b>
 + Plate background should be </b>WHITE</b> (i.e: not working with different background, like yellow). 
 + Sometimes, the median filter break in two distinct part a single plate band: this will cause the method GRAYSCALE to perform a little worse than expected since the coordinate fetched doesn't fit perfectly. Fix for this is soon coming.
