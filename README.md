@@ -4,6 +4,8 @@
 The reason behind this script was given by the necessity of extracting only the characters from a license plate to fine-tune an OCR neural network model like <b>Tesseract</b>, both for train the netowrk on how to recognize and correctly identify characters from a license plate and for applying a solid preprocessing before perform the OCR.<br><br>
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Compatibilities 
+The extraction does work well with all kind of <b>European</b> plates and such. Plates not supported at the moment are ones from Belgium, Luxembourg and Netherlands.
 
 ## Features
 This script comes with <b>five</b> different methods of extraction, based on different needs:<br>
