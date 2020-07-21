@@ -100,22 +100,12 @@ class PlateExtractor:
         # PIPELINE SHOW
         if display: self.display_pipeline("Blue mask", mask_blue)
 
-        # Using a simple and fairly strong median blur to suppress white noise into
+        # Using a simple and fairly lightweight median blur to suppress white noise into
         # the mask image
-        mask_blue_filtered = cv2.medianBlur(mask_blue, 15)
+        mask_blue_filtered = cv2.medianBlur(mask_blue, 7)
 
         # PIPELINE SHOW
         if display: self.display_pipeline("Blue mask filtered", mask_blue_filtered)
-
-        # Once the mask has been cleared, we fill eventual remaining holes in the mask
-        # using a closing on the result of the median filtering. To do so, we use an
-        # elliptical 7x7 kernel and perform an opening operation on the inverted mask.
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
-        mask_blue_filled = cv2.morphologyEx(mask_blue_filtered, cv2.MORPH_OPEN, kernel)
-
-
-        # PIPELINE SHOW
-        if display: self.display_pipeline("Blue mask filled", mask_blue_filled)
 
         # Before moving on the pipeline, we're gonna use the blue mask to extract the outer
         # (x,y) coordinates of the left and right blue band, since those will be useful
@@ -123,8 +113,8 @@ class PlateExtractor:
         # First thing, we extrapolate the max height (rows) and width (cols) of the image.
         # There will be cases where the blue band will be present only at one side (i.e.:
         # GERMAN PLATES) or at both sides (i.e.: ITALIAN PLATES).
-        max_height = mask_blue_filled.shape[0]
-        max_width = mask_blue_filled.shape[1]
+        max_height = mask_blue_filtered.shape[0]
+        max_width = mask_blue_filtered.shape[1]
 
         # If we'd like to have the coordinates of the maximum extension and starting point
         # of the bands to be automatic:
@@ -152,19 +142,19 @@ class PlateExtractor:
             # mask image to detach rectangle mask from the border, since we're going to use
             # findContours to fulfill our scope. We achieve this by using numpy slicing on the
             # rows as follow, to replace on the bottom and top row (0-max cols) white pixels.
-            mask_blue_filled[0][0:max_width-1] = 255
-            mask_blue_filled[max_height-1][0:max_width-1] = 255
+            mask_blue_filtered[0][0:max_width-1] = 255
+            mask_blue_filtered[max_height-1][0:max_width-1] = 255
 
             # We do the same on the leftmost and rightmost column, replacing their values
             # with blue pixels: we do this by a simple iteration for the sake of simplicity
             for i in range(max_height):
-                mask_blue_filled[i][0] = 255
-                mask_blue_filled[i][max_width-1] = 255
+                mask_blue_filtered[i][0] = 255
+                mask_blue_filtered[i][max_width-1] = 255
 
             # We now call findContours to find the contours of the mask element (that should be
             # composed by the two blue mask rectangle. Note that we could have a decomposed black
             # mask, so we could deal with more contours than the expected).
-            mask_contours = cv2.findContours(mask_blue_filled, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+            mask_contours = cv2.findContours(mask_blue_filtered, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
             # Using the grab_contours function we return instead of a multi-dimensional array
             # containing both contours and hierarchy only the contours of an image, correctly
@@ -172,11 +162,11 @@ class PlateExtractor:
             mask_contours = imutils.grab_contours(mask_contours)
 
             # PIPELINE SHOW
-            if display: self.display_pipeline("Framed blue mask", mask_blue_filled)
+            if display: self.display_pipeline("Framed blue mask", mask_blue_filtered)
 
             # For drawing purposes in the debug section later on
             mask_blue_copy = None
-            if display: mask_blue_copy = cv2.cvtColor(mask_blue_filled, cv2.COLOR_GRAY2BGR)
+            if display: mask_blue_copy = cv2.cvtColor(mask_blue_filtered, cv2.COLOR_GRAY2BGR)
 
             # Now, we need to find the most inner width coordinate in which the blue boxes
             # extends. We do such thing to use those coordinate to exclude everything before
@@ -194,9 +184,9 @@ class PlateExtractor:
                 # the contour should contains only the contour representing the blue bounding
                 # boxes. That should not be true due to small noise areas remained. To skip those
                 # areas, we calculate the area of the bounding box: if the area is lesser than
-                # the 2% of the area (empirical), we're dealing with a potential noise: we just
-                # skip that.
-                if (w*h) < (2*(plate.shape[1]*plate.shape[0]))/100:
+                # the 5% of the area (empirical), we're dealing with a potential noise or symbol:
+                # we just skip that.
+                if (w*h) < (5*(plate.shape[1]*plate.shape[0]))/100:
                     continue
 
                 # check if the x coordinate (width) is placed left or right the midpoint
@@ -248,7 +238,7 @@ class PlateExtractor:
             ))
 
             # Getting a copy
-            copy_mask = mask_blue_filled.copy()
+            copy_mask = mask_blue_filtered.copy()
 
             # Draw left blue band: We'd like to draw the rectangle starting at (0,0) and finishing
             # at the optimal left width found with the maximum height possible (80 by default)
@@ -273,7 +263,7 @@ class PlateExtractor:
         if display: self.display_pipeline("Gray plate normalized", gray_plate)
 
         # Apply the generated blue mask on the grayscale plate image
-        gray_plate_masked = cv2.bitwise_and(gray_plate, gray_plate, mask=mask_blue_filled)
+        gray_plate_masked = cv2.bitwise_and(gray_plate, gray_plate, mask=mask_blue_filtered)
 
         # PIPELINE SHOW
         if display: self.display_pipeline("Gray plate masked", gray_plate_masked)
@@ -310,14 +300,14 @@ class PlateExtractor:
         binarized_masked = cv2.bitwise_and(binarized_filtered, binarized_filtered, mask=mask_blue_filtered)
 
         # PIPELINE SHOW
+
         if display: self.display_pipeline("Binarized masked", binarized_masked)
 
         # We then return both the image filtered, binarized and with the mask applied on,
         # and the grayscale image for further analysis.
         return gray_plate, binarized_masked, (optimal_left_width, optimal_right_width, optimal_lower_height, optimal_upper_height)
 
-    # END
-
+    # End
 
     #### 2) CONTOURS EXTRACTION
     # Function that, given a correct preprocessed and binarized plate, will find the
