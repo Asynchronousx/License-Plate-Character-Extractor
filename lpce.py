@@ -111,7 +111,7 @@ class PlateExtractor:
         # using a closing on the result of the median filtering. To do so, we use an
         # elliptical 7x7 kernel and perform an opening operation on the inverted mask.
         kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
-        mask_blue_filled = cv2.morphologyEx(mask_blue_filtered, cv2.MORPH_CLOSE, kernel)
+        mask_blue_filled = cv2.morphologyEx(mask_blue_filtered, cv2.MORPH_OPEN, kernel)
 
 
         # PIPELINE SHOW
