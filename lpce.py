@@ -813,9 +813,6 @@ class PlateExtractor:
         # Write output on disk
         if write: self.write_on_path("OUTPUT_GRAYSCALE_BIN", grayscale_plate, image_name)
 
-        # test
-        cv2.imwrite("img.png", grayscale_plate)
-
         # Return the text image if specified
         if ret: return grayscale_plate
 
