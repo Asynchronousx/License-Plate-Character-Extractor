@@ -102,7 +102,7 @@ class PlateExtractor:
 
         # Using a simple and fairly strong median blur to suppress white noise into
         # the mask image
-        mask_blue_filtered = cv2.medianBlur(mask_blue, 7)
+        mask_blue_filtered = cv2.medianBlur(mask_blue, 15)
 
         # PIPELINE SHOW
         if display: self.display_pipeline("Blue mask filtered", mask_blue_filtered)
