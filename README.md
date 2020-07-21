@@ -5,7 +5,7 @@ The reason behind this script was given by the necessity of extracting only the 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Compatibilities 
-The extraction does work well with all kind of <b>European</b> plates and such. Plates not supported at the moment are ones from Belgium, Luxembourg and Netherlands.
+The extraction does work well with all kind of <b>European</b> plates and such, disposed on one line (as the above example). Plates not supported at the moment are ones from Belgium, Luxembourg and Netherlands.
 
 ## Features
 This script comes with <b>five</b> different methods of extraction, based on different needs:<br>
