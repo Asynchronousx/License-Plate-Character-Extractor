@@ -102,7 +102,7 @@ class PlateExtractor:
 
         # Using a simple and fairly lightweight median blur to suppress white noise into
         # the mask image
-        mask_blue_filtered = cv2.medianBlur(mask_blue, 7)
+        mask_blue_filtered = cv2.medianBlur(mask_blue, 3)
 
         # PIPELINE SHOW
         if display: self.display_pipeline("Blue mask filtered", mask_blue_filtered)
@@ -294,18 +294,27 @@ class PlateExtractor:
         # PIPELINE SHOW
         if display: self.display_pipeline("Binarized filtered", binarized_filtered)
 
-        # Having a good filtered image, we now need to apply the blue mask computed earlier
-        # to isolate even more the plate center containing the text, suppressing the remaining
-        # holes containing useless details of the image.
-        binarized_masked = cv2.bitwise_and(binarized_filtered, binarized_filtered, mask=mask_blue_filtered)
+        # Let's now use the coordinates found with adaptive_bands to draw black rectangles representing
+        # the part of the band we need to filter out. We decide to not draw upper and lower mask rectangle
+        # because there are cases in which the plate is oblique: drawing those will cut character out.
+        # Draw left blue band: We'd like to draw the rectangle starting at (0,0) and finishing
+        # at the optimal left width found with the maximum height possible (80 by default)
+        cv2.rectangle(binarized_filtered, (0, 0), ((0 + optimal_left_width), (0+plate.shape[0])), 0, -1)
+
+        # Draw right blue band: same concept here, but using the rightmost values
+        cv2.rectangle(binarized_filtered, (optimal_right_width, 0), (plate.shape[1], plate.shape[0]), 0, -1)
+
+        # Draw upper and lower band: OPTIONAL, works really good with horizontal LP images but
+        # struggle with oblique LP images
+        #cv2.rectangle(binarized_filtered, (0, 0), (240, optimal_lower_height), 0, -1)
+        #cv2.rectangle(binarized_filtered, (0, optimal_upper_height), (240, 80), 0, -1)
 
         # PIPELINE SHOW
-
-        if display: self.display_pipeline("Binarized masked", binarized_masked)
+        if display: self.display_pipeline("Binarized masked", binarized_filtered)
 
         # We then return both the image filtered, binarized and with the mask applied on,
         # and the grayscale image for further analysis.
-        return gray_plate, binarized_masked, (optimal_left_width, optimal_right_width, optimal_lower_height, optimal_upper_height)
+        return gray_plate, binarized_filtered, (optimal_left_width, optimal_right_width, optimal_lower_height, optimal_upper_height)
 
     # End
 
